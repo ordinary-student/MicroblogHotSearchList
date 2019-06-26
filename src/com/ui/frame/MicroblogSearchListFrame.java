@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.text.SimpleDateFormat;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -43,7 +44,7 @@ public class MicroblogSearchListFrame extends MyJFrame
 	public void initUI()
 	{
 		// 设置标题
-		setTitle("微博热搜榜");
+		setTitle("微博热搜榜" + getCurrentTime());
 		// 设置大小
 		setSize(new Dimension(610, 700));
 		// 设置最小的大小
@@ -120,8 +121,18 @@ public class MicroblogSearchListFrame extends MyJFrame
 		hsPanel.setBounds(5, 10, 600, 570);
 		// 添加新热搜面板
 		getContentPane().add(hsPanel, BorderLayout.CENTER);
+		// 设置标题
+		setTitle("微博热搜榜" + getCurrentTime());
 		// 排版
 		validate();
+	}
+
+	public String getCurrentTime()
+	{
+		// 格式
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		// 返回
+		return df.format(System.currentTimeMillis());
 	}
 
 }
